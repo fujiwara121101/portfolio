@@ -13,13 +13,14 @@ class ProfileController extends Controller
     public function index(Profile $profile, Manner $manner)
     {
         return $profile->get();
-        //Mannersテーブル
-        return view('manners/index')->with(['title' => $title->get()]); 
+        //new
+        $profile =Profile::all();
+        
+        return view('profiles/index',['profiles => $profiles'])->with(['title' => $title->get()]); 
     }
 
     public function create(Prefecture $prefecture, Request $request)
     {
-        //もともと
         return view('profiles/create')->with(['prefectures' => $prefecture->get()]);
     }
     
@@ -49,9 +50,11 @@ class ProfileController extends Controller
     }
     
     //プロフィール詳細表示
-    public function show(Profile $profile, Prefecture $prefecture)
+    public function show(Profile $profile, Prefecture $prefecture,)
     {
-        return view('profiles/show')->with(['profile' => $profile, 'prefectures' => $prefecture->get()]);
+        $posts = Post::all();
+        
+        return view('profiles/show')->with(['profile' => $profile,'profiles' =>$profiles, 'prefectures' => $prefecture->get()]);
     }   
     
     

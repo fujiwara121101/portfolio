@@ -1,8 +1,9 @@
+<!DOCTYPE HTML>
 @extends('layouts.app')
 
 @section('content')
     <head>
-        <title>ユーザー検索</title>
+        <title>profile_search</title>
     </head>
     <body>
         <h1>ユーザー検索</h2>
@@ -35,8 +36,7 @@
         @endforeach
         </table>
         @endif
+        <div class="back">[<a href="/">戻る</a>]</div>
         
-        </div>
-            
     </body>
 @endsection
